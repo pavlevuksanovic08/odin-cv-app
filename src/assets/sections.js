@@ -1,4 +1,4 @@
-export default sections = {
+let sections = {
     "bio": {
         "title": "Bio",
         "addMore": false,
@@ -50,3 +50,5 @@ export default sections = {
         ]
     }
 }
+
+export default sections;
