@@ -1,5 +1,5 @@
 import LoadEditSection from "./loadEditSection";
-import defaultImg from "../assets/default.png"
+import defaultImg from "../../assets/default.png"
 
 export default function LoadEditor({ sections, handlers }) {
     return (
