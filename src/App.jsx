@@ -4,16 +4,17 @@ import LoadEditor from './components/loadEditor'
 import './App.css'
 
 function App() {
-  const [status, setStatus] = useState("edit")
-  const [sections, setSections] = useState(sectionsData)
+  const [status, setStatus] = useState("edit");
+  const [savedSections, setSavedSections] = useState(sectionsData);
+  const [draftSections, setDraftSections] = useState(savedSections)
 
   function handleValueChange(sectionKey, fieldsetIndex, fieldName, newValue) {
     const newSections = {
-      ...sections,
+      ...draftSections,
       [sectionKey]: {
-        ...sections[sectionKey],
+        ...draftSections[sectionKey],
         fields: 
-          sections[sectionKey].fields.map((fieldset, index) => {
+          draftSections[sectionKey].fields.map((fieldset, index) => {
             return index !== fieldsetIndex 
               ? fieldset
               : fieldset.map(field => {
@@ -25,8 +26,7 @@ function App() {
         
       }
     }
-    console.log(newSections)
-    setSections(newSections);
+    setDraftSections(newSections);
   }
 
   function handleAddFieldset(sectionKey) {
@@ -36,37 +36,46 @@ function App() {
     }));
 
     const newSections = {
-      ...sections,
+      ...draftSections,
       [sectionKey]: {
-        ...sections[sectionKey],
+        ...draftSections[sectionKey],
         fields: [
-          ...sections[sectionKey].fields,
+          ...draftSections[sectionKey].fields,
           newFieldset
         ]
       }
     }
-    console.log(sections[sectionKey])
-    setSections(newSections)
+    setDraftSections(newSections)
   }
 
   function handleRemoveFieldset(sectionKey) {
-    const newFieldset = sections[sectionKey].fields.length > 1 ? sections[sectionKey].fields.slice(0, -1) : sections[sectionKey].fields;
+    const newFieldset = draftSections[sectionKey].fields.length > 1 ? draftSections[sectionKey].fields.slice(0, -1) : draftSections[sectionKey].fields;
 
     const newSections = {
-      ...sections,
+      ...draftSections,
       [sectionKey]: {
-        ...sections[sectionKey],
+        ...draftSections[sectionKey],
         fields: newFieldset
       }
     }
 
-    setSections(newSections);
-  } 
+    setDraftSections(newSections);
+  }
+
+  function saveChanges() {
+    setSavedSections(draftSections);
+  }
+
+  function switchToPreview() {
+    setStatus("preview")
+  }
 
   return (
     
     <>
-      {status === "edit" ? <LoadEditor sections={sections} handlers={{handleValueChange, handleAddFieldset, handleRemoveFieldset}} /> : <LoadPreviewer sections={sections} />}
+      {status === "edit" 
+        ? <LoadEditor sections={draftSections} handlers={{handleValueChange, handleAddFieldset, handleRemoveFieldset, saveChanges, switchToPreview}} /> 
+        : <LoadPreviewer sections={sections} />}
     </>
   )
 
