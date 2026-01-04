@@ -1,7 +1,7 @@
 import defaultImg from "../../assets/default.png"
 import LoadPreviewSection from "./loadPreviewSection"
 
-export default function LoadPreview({sections}) {
+export default function LoadPreview({sections, handlers}) {
     
     return (
         <>
@@ -30,6 +30,9 @@ export default function LoadPreview({sections}) {
                 }
                 
             })}
+            <div>
+                <button onClick={() => handlers.switchToEdit()}>Edit</button>
+            </div>
         </>
     )
 

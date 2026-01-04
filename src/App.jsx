@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import sectionsData from './assets/sections'
 import LoadEditor from './components/edit/loadEditor'
+import LoadPreview from './components/preview/loadPreview'
 import './App.css'
 
 function App() {
@@ -70,12 +71,17 @@ function App() {
     setStatus("preview")
   }
 
+
+  function switchToEdit() {
+    setStatus("edit");
+  }
+
   return (
     
     <>
       {status === "edit" 
         ? <LoadEditor sections={draftSections} handlers={{handleValueChange, handleAddFieldset, handleRemoveFieldset, saveChanges, switchToPreview}} /> 
-        : <LoadPreviewer sections={sections} />}
+        : <LoadPreview sections={savedSections} handlers={{switchToEdit}}/>}
     </>
   )
 
