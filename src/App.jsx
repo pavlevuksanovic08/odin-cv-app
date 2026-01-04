@@ -25,8 +25,43 @@ function App() {
         
       }
     }
+    console.log(newSections)
     setSections(newSections);
   }
+
+  function handleAddFieldset(sectionKey) {
+    const newFieldset = sectionsData[sectionKey].fields[0].map(field => ({
+      ...field,
+      value: ""
+    }));
+
+    const newSections = {
+      ...sections,
+      [sectionKey]: {
+        ...sections[sectionKey],
+        fields: [
+          ...sections[sectionKey].fields,
+          newFieldset
+        ]
+      }
+    }
+    console.log(sections[sectionKey])
+    setSections(newSections)
+  }
+
+  function handleRemoveFieldset(sectionKey) {
+    const newFieldset = sections[sectionKey].fields.length > 1 ? sections[sectionKey].fields.slice(0, -1) : sections[sectionKey].fields;
+
+    const newSections = {
+      ...sections,
+      [sectionKey]: {
+        ...sections[sectionKey],
+        fields: newFieldset
+      }
+    }
+
+    setSections(newSections);
+  } 
 
   return (
     
