@@ -1,6 +1,6 @@
 import { useState } from 'react'
 import sectionsData from './assets/sections'
-import LoadEditor from './components/loadEditor'
+import LoadEditor from './components/edit/loadEditor'
 import './App.css'
 
 function App() {
