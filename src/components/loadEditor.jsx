@@ -28,6 +28,10 @@ export default function LoadEditor({ sections, handlers }) {
                     )
                 }
             })}
+            <div>
+                <button onClick={() => handlers.switchToPreview()}>Cancel</button>
+                <button onClick={() => {handlers.saveChanges(); handlers.switchToPreview()}}>Save</button>
+            </div>
         </div>
     )
 }
