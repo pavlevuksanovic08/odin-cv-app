@@ -1,4 +1,5 @@
 import LoadEditSection from "./loadEditSection";
+import defaultImg from "../assets/default.png"
 
 export default function LoadEditor({ sections, handlers }) {
     return (
@@ -6,7 +7,10 @@ export default function LoadEditor({ sections, handlers }) {
             <h1>Edit your CV</h1>
             <div>
                 <div>
-                    /*image*/
+                    {sections.bio.fields[0][0].value
+                        ? <img src={sections.bio.fields[0][0].value}></img>
+                        : <img src={defaultImg}></img>
+                    }
                 </div>
                 <div>
                     <h2>{sections.bio.title}</h2>
