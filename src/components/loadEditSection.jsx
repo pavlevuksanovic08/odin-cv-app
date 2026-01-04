@@ -1,10 +1,10 @@
 import EditBox from "./editBox";
 
 
-export default function LoadEditSection({ section, sectionKey, onValueChange }) {
+export default function LoadEditSection({ section, sectionKey, handlers }) {
 
     function handleChange(fieldsetIndex, fieldName, newValue) {
-        onValueChange(sectionKey, fieldsetIndex, fieldName, newValue)
+        handlers.handleValueChange(sectionKey, fieldsetIndex, fieldName, newValue)
     }
 
     return (
@@ -18,8 +18,8 @@ export default function LoadEditSection({ section, sectionKey, onValueChange }) 
             )))}
             {section.addMore && 
                 <div>
-                    <button>Remove</button>
-                    <button>Add</button>
+                    <button onClick={() => handlers.handleRemoveFieldset(sectionKey)}>Remove</button>
+                    <button onClick={() => handlers.handleAddFieldset(sectionKey)}>Add</button>
                 </div>
             }
         </div>

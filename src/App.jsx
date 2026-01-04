@@ -66,7 +66,7 @@ function App() {
   return (
     
     <>
-      {status === "edit" ? <LoadEditor sections={sections} onValueChange={handleValueChange} /> : <LoadPreviewer sections={sections} />}
+      {status === "edit" ? <LoadEditor sections={sections} handlers={{handleValueChange, handleAddFieldset, handleRemoveFieldset}} /> : <LoadPreviewer sections={sections} />}
     </>
   )
 
