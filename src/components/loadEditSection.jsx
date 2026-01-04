@@ -16,6 +16,12 @@ export default function LoadEditSection({ section, sectionKey, onValueChange }) 
                     </div>
                 )              
             )))}
+            {section.addMore && 
+                <div>
+                    <button>Remove</button>
+                    <button>Add</button>
+                </div>
+            }
         </div>
     )
 }
