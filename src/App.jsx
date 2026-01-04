@@ -1,35 +1,39 @@
 import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
+import sectionsData from './assets/sections'
+import LoadEditor from './components/loadEditor'
 import './App.css'
 
 function App() {
-  const [count, setCount] = useState(0)
+  const [status, setStatus] = useState("edit")
+  const [sections, setSections] = useState(sectionsData)
+
+  function handleValueChange(sectionKey, fieldsetIndex, fieldName, newValue) {
+    const newSections = {
+      ...sections,
+      [sectionKey]: {
+        ...sections[sectionKey],
+        fields: 
+          sections[sectionKey].fields.map((fieldset, index) => {
+            return index !== fieldsetIndex 
+              ? fieldset
+              : fieldset.map(field => {
+                return field.label !== fieldName
+                  ? field
+                  : {...field, value: newValue}
+              })
+          })
+        
+      }
+    }
+    setSections(newSections);
+  }
 
   return (
+    
     <>
-      <div>
-        <a href="https://vite.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
+      {status === "edit" ? <LoadEditor sections={sections} onValueChange={handleValueChange} /> : <LoadPreviewer sections={sections} />}
     </>
   )
-}
 
+}
 export default App
