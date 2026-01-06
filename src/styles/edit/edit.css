@@ -1,0 +1,10 @@
+.inputBox {
+    display: flex;
+    justify-content: right;
+    gap: 20px;
+    margin: 10px;
+}
+
+input, textarea{
+    width: 50%;
+}

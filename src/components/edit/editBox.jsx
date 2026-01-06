@@ -11,7 +11,7 @@ export default function EditBox({ data, onValueChange }) {
     }
 
     return (
-        <div>
+        <div className="inputBox">
             <label>{data.label}: </label>
             {data.type === "textarea" ? (
                 <textarea defaultValue={data.value} onChange={(e) => onValueChange(e.target.value)}></textarea>

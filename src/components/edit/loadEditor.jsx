@@ -6,7 +6,7 @@ export default function LoadEditor({ sections, handlers }) {
         <div>
             <h1>Edit your CV</h1>
             <div className="grid-template">
-                <div>
+                <div className="img-cell">
                     {sections.bio.fields[0][0].value
                         ? <img src={sections.bio.fields[0][0].value}></img>
                         : <img src={defaultImg}></img>

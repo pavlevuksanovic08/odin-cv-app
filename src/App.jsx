@@ -4,6 +4,7 @@ import LoadEditor from './components/edit/loadEditor'
 import LoadPreview from './components/preview/loadPreview'
 import './App.css'
 import './styles/layout.css'
+import './styles/edit/edit.css'
 
 function App() {
   const [status, setStatus] = useState("edit");
