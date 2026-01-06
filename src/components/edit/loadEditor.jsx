@@ -6,20 +6,20 @@ export default function LoadEditor({ sections, handlers }) {
         <div>
             <h1>Edit your CV</h1>
             <div className="grid-template">
-                <div className="img-cell">
+                <div className="img-cell section">
                     {sections.bio.fields[0][0].value
                         ? <img src={sections.bio.fields[0][0].value}></img>
                         : <img src={defaultImg}></img>
                     }
                 </div>
-                <div>
+                <div className="section">
                     <h2>{sections.bio.title}</h2>
                     <LoadEditSection section={sections.bio} sectionKey={"bio"} handlers={handlers} />
                 </div>
                 {Object.keys(sections).map((key) => {
                     if (key !== "bio") {
                         return (
-                            <div key={key}>
+                            <div key={key} className="section">
                                 <h2>{sections[key].title}</h2>
                                 <LoadEditSection section={sections[key]} sectionKey={key} handlers={handlers} />
                             </div>
