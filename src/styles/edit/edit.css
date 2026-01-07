@@ -24,3 +24,7 @@ input, textarea{
         font-size: 21px;
     }
 }
+
+.fieldset {
+    margin: 15% 0;
+}

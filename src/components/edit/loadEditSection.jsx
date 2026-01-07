@@ -10,12 +10,14 @@ export default function LoadEditSection({ section, sectionKey, handlers }) {
     return (
         <div>
             {section.fields.map((fieldset, fieldsetIndex) => (
-                fieldset.map((field, index) => (
-                    <div key={index}>
-                        <EditBox data={field} onValueChange={(newValue) => handleChange(fieldsetIndex, field.label, newValue)}/>
-                    </div>
-                )              
-            )))}
+                <div className="fieldset" key={fieldsetIndex}>
+                    {fieldset.map((field, index) => (
+                        <div key={index}>
+                            <EditBox data={field} onValueChange={(newValue) => handleChange(fieldsetIndex, field.label, newValue)}/>
+                        </div>
+                    ))}
+                </div>
+            ))}
             {section.addMore && 
                 <div className="section-btns">
                     <button onClick={() => handlers.handleRemoveFieldset(sectionKey)}>Remove</button>
