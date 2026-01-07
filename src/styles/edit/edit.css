@@ -8,3 +8,19 @@
 input, textarea{
     width: 50%;
 }
+
+.section-btns {
+    display: flex;
+    justify-content: center;
+    gap: 20%;
+}
+
+.btns {
+    margin: 5%;
+    display: flex;
+    justify-content: center;
+    gap: 10%;
+    * {
+        font-size: 21px;
+    }
+}
