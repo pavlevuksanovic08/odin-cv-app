@@ -39,25 +39,6 @@ let sections = {
                 {"label": "Description", "type": "textarea", "key": "description", "value": ""} 
             ]
         ]
-    },
-    "skills": {
-        "title": "Skills",
-        "addMore": true,
-        "fields": [
-            [
-                {"label": "Skill", "type": "text", "key": "skill", "value": "" }
-            ]
-        ]
-    },
-    "socials": {
-        "title": "Socials",
-        "addMore": true,
-        "fields": [
-            [
-                {"label": "Platform", "type": "text", "key": "platform", "value": "" },
-                {"label": "URL", "type": "text", "key": "url", "value": "" }
-            ]
-        ]
     }
 }
 
