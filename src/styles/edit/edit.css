@@ -15,7 +15,7 @@ input, textarea{
     gap: 20%;
 }
 
-.btns {
+.edit-btns {
     margin: 5%;
     display: flex;
     justify-content: center;

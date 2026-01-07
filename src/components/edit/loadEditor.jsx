@@ -27,7 +27,7 @@ export default function LoadEditor({ sections, handlers }) {
                     }
                 })}
             </div>
-            <div className="btns">
+            <div className="edit-btns">
                 <button onClick={() => handlers.switchToPreview()}>Cancel</button>
                 <button onClick={() => {handlers.saveChanges(); handlers.switchToPreview()}}>Save</button>
             </div>
