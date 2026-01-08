@@ -1,7 +1,14 @@
 
 html, body {
+    background-color: darkblue;
     margin: 0;
     padding: 0;
+}
+
+#root {
+    background-color: white;
+    border-radius: 25px;
+    margin: 2% auto;
 }
 
 .grid-template {
