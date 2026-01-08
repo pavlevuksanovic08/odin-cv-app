@@ -28,3 +28,10 @@ input, textarea{
 .fieldset {
     margin: 15% 0;
 }
+
+@media (max-width: 767px) {
+    .section div {
+        margin-right: 3vw;
+    }
+}
+
