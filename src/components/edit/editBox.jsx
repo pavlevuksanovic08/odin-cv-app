@@ -1,23 +1,38 @@
-
-
 export default function EditBox({ data, onValueChange }) {
+  const inputId = crypto.randomUUID();
 
-    function handleFileChange(e) {
-        const file = e.target.files[0];
-        if (!file) return;
+  function handleFileChange(e) {
+    const file = e.target.files[0];
+    if (!file) return;
 
-        const imageUrl = URL.createObjectURL(file);
-        onValueChange(imageUrl)
-    }
+    const imageUrl = URL.createObjectURL(file);
+    onValueChange(imageUrl);
+  }
 
-    return (
-        <div className="inputBox">
-            <label>{data.label}: </label>
-            {data.type === "textarea" ? (
-                <textarea defaultValue={data.value} onChange={(e) => onValueChange(e.target.value)}></textarea>
-            ) : data.type === "file" ? (
-                <input type={data.type} defaultValue={null} onChange={(e) => handleFileChange(e)}/>
-            ) : <input type={data.type} defaultValue={data.value} onChange={(e) => onValueChange(e.target.value)}/>}
-        </div>
-    )
+  return (
+    <div className="inputBox">
+      <label htmlFor={inputId}>{data.label}</label>
+
+      {data.type === "textarea" ? (
+        <textarea
+          id={inputId}
+          defaultValue={data.value}
+          onChange={(e) => onValueChange(e.target.value)}
+        />
+      ) : data.type === "file" ? (
+        <input
+          type="file"
+          id={inputId}
+          onChange={handleFileChange}
+        />
+      ) : (
+        <input
+          type={data.type}
+          id={inputId}
+          defaultValue={data.value}
+          onChange={(e) => onValueChange(e.target.value)}
+        />
+      )}
+    </div>
+  );
 }

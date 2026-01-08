@@ -4,13 +4,13 @@ import LoadPreviewSection from "./loadPreviewSection"
 export default function LoadPreview({sections, handlers}) {
     
     return (
-        <div>
+        <main>
             <h1>Your CV</h1>
             <div className="grid-template">
                 <div className="img-cell section">
                     {sections.bio.fields[0][0].value 
-                        ? <img src={sections.bio.fields[0][0].value}></img>
-                        : <img src={defaultImg}></img>
+                        ? <img src={sections.bio.fields[0][0].value} alt="Profile"></img>
+                        : <img src={defaultImg} alt="Default profile"></img>
                     }
                     
                 </div>
@@ -33,7 +33,7 @@ export default function LoadPreview({sections, handlers}) {
             <div>
                 <button onClick={() => handlers.switchToEdit()} className="preview-btn">Edit</button>
             </div>
-        </div>
+        </main>
     )
 
 }
