@@ -10,7 +10,7 @@ export default function LoadPreviewSection({ section }) {
                         {fieldset.map((field, fieldIndex) =>
                             field.type !== "file" && (
                                 <PreviewBox key={fieldIndex} data={field}></PreviewBox>
-                            )          
+                            )
                         )}
                         </div>
                     </div>

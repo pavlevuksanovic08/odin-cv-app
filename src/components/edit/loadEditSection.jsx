@@ -20,8 +20,8 @@ export default function LoadEditSection({ section, sectionKey, handlers }) {
             ))}
             {section.addMore && 
                 <div className="section-btns">
-                    <button onClick={() => handlers.handleRemoveFieldset(sectionKey)}>Remove</button>
-                    <button onClick={() => handlers.handleAddFieldset(sectionKey)}>Add</button>
+                    <button type="button" className="secondary" onClick={() => handlers.handleRemoveFieldset(sectionKey)}>Remove</button>
+                    <button type="button" onClick={() => handlers.handleAddFieldset(sectionKey)}>Add</button>
                 </div>
             }
         </div>
